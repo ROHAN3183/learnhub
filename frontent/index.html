@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DSA LearnHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="register.css">
+
+  <!-- Scripts -->
+  <script src="loginjs.js" defer></script>
+  <script src="register.js" defer></script>
+
+  <!--logo-->
+   <!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<!-- Modern Browsers -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- PWA (Optional) -->
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#5044E5">
+
+</head>
+<body>
+  <nav>
+    <h1>DSA LearnHub</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="All Problems.html">All Problems</a></li>
+      <li><a href="Notification.html">Notifications</a></li>
+      <li><a href="#" id="loginBtn">Login</a></li>
+    </ul>
+  </nav>
+  
+  <div class="hero">
+    <h2>Master DSA with Real Company Problems</h2>
+    <p>Structured notes, logic-by-logic hints, and full topic coverage</p>
+  </div>
+
+  <div class="section">
+    <h3>Problem Categories</h3>
+    <div class="card-container">
+        <div class="card">Arrays</div>
+      <div class="card">Strings</div>
+      <div class="card">Basic Sorting</div>
+      <div class="card">HashMaps</div>
+      <div class="card">Sliding Window</div>
+      <div class="card">Two pointer</div>
+      <div class="card">Binary Search</div>
+      <div class="card">Greedy</div>
+      <div class="card">Heaps</div>
+      <div class="card">Stack</div>
+      <div class="card">Queue</div>
+      <div class="card">Link Lists</div>
+      <div class="card">Heap / PriorityQueue</div>
+      <div class="card">Recursion</div>
+      <div class="card">Backtracking</div>
+      <div class="card">Tree</div>
+      <div class="card">Graph</div>
+      <div class="card">Dynamic Programming</div>
+      <div class="card">Bit Manipulation</div>
+      <div class="card">Tries</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Featured Problems</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4>Two Sum</h4>
+        <p>Company: Amazon</p>
+        <p>Topic: Arrays, HashMap</p>
+      </div>
+      <div class="card">
+        <h4>Sliding Window Maximum</h4>
+        <p>Company: Microsoft</p>
+        <p>Topic: Sliding Window, Deque</p>
+      </div>
+      <div class="card">
+        <h4>Interval Merge</h4>
+        <p>Company: Google</p>
+        <p>Topic: Sorting, Greedy</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeLogin">&times;</span>
+      <h2>DSA LearnHub</h2>
+      <p class="welcome-text">Master DSA with Real Company Problems</p>
+      <p class="sub-text">Structured notes, logic-by-logic hints, and full topic coverage</p>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Enter your email" required />
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Enter your password" />
+          <span id="togglePassword">Show</span>
+        </div>
+        <div class="forgot">
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <p id="loginMessage" style="margin-top: 10px;"></p>
+      <p>Don't have an account? <a href="#" id="openRegister">Register</a></p>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <!-- Register Modal -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeRegister">&times;</span>
+    <h2>Join DSA LearnHub</h2>
+    <p class="welcome-text">Start mastering DSA today</p>
+    <p class="sub-text">Get access to structured notes and company problems</p>
+    <form id="registerForm">
+      <input type="text" id="username" placeholder="Choose a username" required>
+      <input type="email" id="newEmail" placeholder="Enter your email" required>
+      <div class="password-wrapper">
+        <input type="password" id="newPassword" placeholder="Create a password" required>
+        <span class="toggle-password">Show</span>
+      </div>
+      <div class="password-wrapper">
+        <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+        <span class="toggle-password">Show</span>
+      </div>
+      <div class="terms">
+        <input type="checkbox" id="agreeTerms" required>
+        <label for="agreeTerms">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></label>
+      </div>
+      <button type="submit">Create Account</button>
+    </form>
+    <p id="registerMessage"></p>
+    <p class="login-link">Already have an account? <a href="#" id="openLogin">Sign In</a></p>
+  </div>
+</div>
+
+
+
+  <footer>
+    © 2025 DSA LearnHub. All rights reserved.
+  </footer>
+</body>
+</html>
