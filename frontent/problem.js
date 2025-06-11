@@ -129,7 +129,7 @@ function displayProblems(problems) {
 // Fetch problems
 async function fetchProblems() {
   try {
-    const response = await fetch('http://localhost:5000/api/problems');
+    const response = await fetch('https://learnhub-0m40.onrender.com/api/problems');
     allProblems = await response.json();
     displayProblems(allProblems);
     setupFilterOptions();

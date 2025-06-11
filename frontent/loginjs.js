@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Real backend login request
-    fetch('http://localhost:5000/api/auth/login', {
+    fetch('https://learnhub-0m40.onrender.com/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
