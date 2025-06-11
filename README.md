@@ -1,2 +1,0 @@
-# learnhub
-learnhub project
