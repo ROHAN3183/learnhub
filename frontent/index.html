@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>DSA LearnHub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles.css">
@@ -14,27 +14,22 @@
   <script src="loginjs.js" defer></script>
   <script src="register.js" defer></script>
 
-  <!--logo-->
-   <!-- Favicon -->
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-<!-- Modern Browsers -->
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-
-<!-- iOS -->
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-
-<!-- PWA (Optional) -->
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#5044E5">
-
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  
+  <!-- PWA (Optional) -->
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#5044E5">
 </head>
 <body>
   <nav>
     <h1>DSA LearnHub</h1>
-    <ul>
+    <div class="menu-toggle" id="mobile-menu"></div>
+    <ul class="nav-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="All Problems.html">All Problems</a></li>
       <li><a href="Notification.html">Notifications</a></li>
@@ -50,26 +45,86 @@
   <div class="section">
     <h3>Problem Categories</h3>
     <div class="card-container">
-        <div class="card">Arrays</div>
-      <div class="card">Strings</div>
-      <div class="card">Basic Sorting</div>
-      <div class="card">HashMaps</div>
-      <div class="card">Sliding Window</div>
-      <div class="card">Two pointer</div>
-      <div class="card">Binary Search</div>
-      <div class="card">Greedy</div>
-      <div class="card">Heaps</div>
-      <div class="card">Stack</div>
-      <div class="card">Queue</div>
-      <div class="card">Link Lists</div>
-      <div class="card">Heap / PriorityQueue</div>
-      <div class="card">Recursion</div>
-      <div class="card">Backtracking</div>
-      <div class="card">Tree</div>
-      <div class="card">Graph</div>
-      <div class="card">Dynamic Programming</div>
-      <div class="card">Bit Manipulation</div>
-      <div class="card">Tries</div>
+      <div class="card">
+        <h4>Arrays</h4>
+        <p>50+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Strings</h4>
+        <p>40+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Basic Sorting</h4>
+        <p>30+ problems</p>
+      </div>
+      <div class="card">
+        <h4>HashMaps</h4>
+        <p>45+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Sliding Window</h4>
+        <p>35+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Two pointer</h4>
+        <p>25+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Binary Search</h4>
+        <p>30+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Greedy</h4>
+        <p>20+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Heaps</h4>
+        <p>25+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Stack</h4>
+        <p>30+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Queue</h4>
+        <p>20+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Link Lists</h4>
+        <p>35+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Heap / PriorityQueue</h4>
+        <p>25+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Recursion</h4>
+        <p>30+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Backtracking</h4>
+        <p>40+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Tree</h4>
+        <p>50+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Graph</h4>
+        <p>60+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Dynamic Programming</h4>
+        <p>70+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Bit Manipulation</h4>
+        <p>15+ problems</p>
+      </div>
+      <div class="card">
+        <h4>Tries</h4>
+        <p>20+ problems</p>
+      </div>
     </div>
   </div>
 
@@ -80,16 +135,19 @@
         <h4>Two Sum</h4>
         <p>Company: Amazon</p>
         <p>Topic: Arrays, HashMap</p>
+        <p>Difficulty: Easy</p>
       </div>
       <div class="card">
         <h4>Sliding Window Maximum</h4>
         <p>Company: Microsoft</p>
         <p>Topic: Sliding Window, Deque</p>
+        <p>Difficulty: Hard</p>
       </div>
       <div class="card">
         <h4>Interval Merge</h4>
         <p>Company: Google</p>
         <p>Topic: Sorting, Greedy</p>
+        <p>Difficulty: Medium</p>
       </div>
     </div>
   </div>
@@ -118,39 +176,83 @@
   </div>
 
   <!-- Register Modal -->
-  <!-- Register Modal -->
-<div id="registerModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" id="closeRegister">&times;</span>
-    <h2>Join DSA LearnHub</h2>
-    <p class="welcome-text">Start mastering DSA today</p>
-    <p class="sub-text">Get access to structured notes and company problems</p>
-    <form id="registerForm">
-      <input type="text" id="username" placeholder="Choose a username" required>
-      <input type="email" id="newEmail" placeholder="Enter your email" required>
-      <div class="password-wrapper">
-        <input type="password" id="newPassword" placeholder="Create a password" required>
-        <span class="toggle-password">Show</span>
-      </div>
-      <div class="password-wrapper">
-        <input type="password" id="confirmPassword" placeholder="Confirm password" required>
-        <span class="toggle-password">Show</span>
-      </div>
-      <div class="terms">
-        <input type="checkbox" id="agreeTerms" required>
-        <label for="agreeTerms">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></label>
-      </div>
-      <button type="submit">Create Account</button>
-    </form>
-    <p id="registerMessage"></p>
-    <p class="login-link">Already have an account? <a href="#" id="openLogin">Sign In</a></p>
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeRegister">&times;</span>
+      <h2>Join DSA LearnHub</h2>
+      <p class="welcome-text">Start mastering DSA today</p>
+      <p class="sub-text">Get access to structured notes and company problems</p>
+      <form id="registerForm">
+        <input type="text" id="username" placeholder="Choose a username" required>
+        <input type="email" id="newEmail" placeholder="Enter your email" required>
+        <div class="password-wrapper">
+          <input type="password" id="newPassword" placeholder="Create a password" required>
+          <span class="toggle-password">Show</span>
+        </div>
+        <div class="password-wrapper">
+          <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+          <span class="toggle-password">Show</span>
+        </div>
+        <div class="terms">
+          <input type="checkbox" id="agreeTerms" required>
+          <label for="agreeTerms">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></label>
+        </div>
+        <button type="submit">Create Account</button>
+      </form>
+      <p id="registerMessage"></p>
+      <p class="login-link">Already have an account? <a href="#" id="openLogin">Sign In</a></p>
+    </div>
   </div>
-</div>
-
-
 
   <footer>
     © 2025 DSA LearnHub. All rights reserved.
   </footer>
+
+  <script>
+    // Mobile menu functionality
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+      document.querySelector('.nav-menu').classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on nav items
+    document.querySelectorAll('.nav-menu a').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelector('.nav-menu').classList.remove('active');
+      });
+    });
+
+    // Modal toggle functionality (existing from your loginjs.js)
+    document.getElementById('loginBtn')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('loginModal').style.display = 'block';
+    });
+
+    document.getElementById('closeLogin')?.addEventListener('click', function() {
+      document.getElementById('loginModal').style.display = 'none';
+    });
+
+    document.getElementById('openRegister')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('loginModal').style.display = 'none';
+      document.getElementById('registerModal').style.display = 'block';
+    });
+
+    document.getElementById('closeRegister')?.addEventListener('click', function() {
+      document.getElementById('registerModal').style.display = 'none';
+    });
+
+    document.getElementById('openLogin')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('registerModal').style.display = 'none';
+      document.getElementById('loginModal').style.display = 'block';
+    });
+
+    // Close modals when clicking outside
+    window.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal')) {
+        e.target.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
