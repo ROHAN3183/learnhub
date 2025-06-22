@@ -45,84 +45,83 @@
   <div class="section">
     <h3>Problem Categories</h3>
     <div class="card-container">
-      <div class="card">
+      <div class="card" onclick="goToTopic('Array')">
         <h4>Arrays</h4>
         <p>50+ problems</p>
       </div>
-      <!-- All other category cards remain the same -->
-       <div class="card">
+      <div class="card" onclick="goToTopic('Strings')">
         <h4>Strings</h4>
         <p>40+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Basic Sorting')">
         <h4>Basic Sorting</h4>
         <p>30+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('HashMaps')">
         <h4>HashMaps</h4>
         <p>45+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Sliding Window')">
         <h4>Sliding Window</h4>
         <p>35+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Two pointer')">
         <h4>Two pointer</h4>
         <p>25+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Binary Search')">
         <h4>Binary Search</h4>
         <p>30+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Greedy')">
         <h4>Greedy</h4>
         <p>20+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Heaps')">
         <h4>Heaps</h4>
         <p>25+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Stack')">
         <h4>Stack</h4>
         <p>30+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Queue')">
         <h4>Queue</h4>
         <p>20+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Link Lists')">
         <h4>Link Lists</h4>
         <p>35+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Heap / PriorityQueue')">
         <h4>Heap / PriorityQueue</h4>
         <p>25+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Recursion')">
         <h4>Recursion</h4>
         <p>30+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Backtracking')">
         <h4>Backtracking</h4>
         <p>40+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Tree')">
         <h4>Tree</h4>
         <p>50+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Graph')">
         <h4>Graph</h4>
         <p>60+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Dynamic Programming')">
         <h4>Dynamic Programming</h4>
         <p>70+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Bit Manipulation')">
         <h4>Bit Manipulation</h4>
         <p>15+ problems</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="goToTopic('Tries')">
         <h4>Tries</h4>
         <p>20+ problems</p>
       </div>
@@ -151,16 +150,16 @@
         <p>Difficulty: Medium</p>
       </div>
       <div class="card">
-  <h4>Container With Most Water</h4>
-  <p>Company: Facebook, Google, Microsoft</p>
-  <p>Topic: Two Pointer, Arrays</p>
-  <p>Difficulty: Medium</p>
-</div>
+        <h4>Container With Most Water</h4>
+        <p>Company: Facebook, Google, Microsoft</p>
+        <p>Topic: Two Pointer, Arrays</p>
+        <p>Difficulty: Medium</p>
+      </div>
     </div>
   </div>
 
-  <!-- Login and Register Modals (same as before) -->
-     <!-- Login Modal -->
+  <!-- Login and Register Modals (unchanged) -->
+  <!-- Login Modal -->
   <div id="loginModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" id="closeLogin">&times;</span>
@@ -183,7 +182,7 @@
     </div>
   </div>
 
-     <!-- Register Modal -->
+  <!-- Register Modal -->
   <div id="registerModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" id="closeRegister">&times;</span>
@@ -220,7 +219,6 @@
   <script src="loginjs.js" defer></script>
   <script src="register.js" defer></script>
   <script>
-    // Mobile menu functionality
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -229,7 +227,6 @@
       navMenu.classList.toggle('active');
     });
 
-    // Close menu when clicking on nav items
     document.querySelectorAll('.nav-menu a').forEach(item => {
       item.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
@@ -237,7 +234,10 @@
       });
     });
 
-    // Modal functionality (same as before)
+    // New: redirect to All Problems with topic
+    function goToTopic(topic) {
+      window.location.href = `All Problems.html?topic=${encodeURIComponent(topic)}`;
+    }
   </script>
 </body>
 </html>

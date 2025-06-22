@@ -5,10 +5,7 @@ let currentFilters = {
   topics: []
 };
 
-// ✅ Get actual logged-in user from localStorage
 const userId = JSON.parse(localStorage.getItem('loggedInUser'))?.email || null;
-
-// Track user progress
 let userProgress = {};
 
 // DOM Elements
@@ -18,14 +15,10 @@ const homeLink = document.getElementById('home-link');
 const closeFilter = document.getElementById('close-filter');
 const applyFilter = document.getElementById('apply-filter');
 const resetFilter = document.getElementById('reset-filter');
-const difficultyOptions = document.getElementById('difficulty-options');
-const companyOptions = document.getElementById('company-options');
-const topicOptions = document.getElementById('topic-options');
 const searchInput = document.getElementById('searchInput');
 
 // Event Listeners
 filterLink.addEventListener('click', openFilterModal);
-homeLink.addEventListener('click', showAllProblems);
 closeFilter.addEventListener('click', closeFilterModal);
 applyFilter.addEventListener('click', applyFilters);
 resetFilter.addEventListener('click', resetFilters);
@@ -33,7 +26,6 @@ searchInput.addEventListener('keyup', function (e) {
   if (e.key === 'Enter') handleSearch();
 });
 
-// Add event listeners to filter options
 function setupFilterOptions() {
   const options = document.querySelectorAll('.filter-option');
   options.forEach(option => {
@@ -43,7 +35,6 @@ function setupFilterOptions() {
   });
 }
 
-// Modal functions
 function openFilterModal() {
   filterModal.style.display = 'flex';
 }
@@ -52,7 +43,12 @@ function closeFilterModal() {
   filterModal.style.display = 'none';
 }
 
-// Filter functions
+function getSelectedValues(containerId) {
+  const container = document.getElementById(containerId);
+  const selected = container.querySelectorAll('.selected');
+  return Array.from(selected).map(el => el.dataset.value);
+}
+
 function applyFilters() {
   currentFilters = {
     difficulty: getSelectedValues('difficulty-options'),
@@ -64,33 +60,27 @@ function applyFilters() {
   closeFilterModal();
 }
 
-function getSelectedValues(containerId) {
-  const container = document.getElementById(containerId);
-  const selected = container.querySelectorAll('.selected');
-  return Array.from(selected).map(el => el.dataset.value);
-}
-
 function resetFilters() {
   document.querySelectorAll('.filter-option.selected').forEach(option => {
     option.classList.remove('selected');
   });
 
   currentFilters = { difficulty: [], company: [], topics: [] };
-  showAllProblems();
-  closeFilterModal();
+  displayProblems(allProblems);
+  searchInput.value = '';
 }
 
 function filterProblems() {
   const filtered = allProblems.filter(problem => {
-    if (currentFilters.difficulty.length > 0 &&
-      !currentFilters.difficulty.includes(problem.difficulty.toLowerCase())) {
-      return false;
-    }
+    if (
+      currentFilters.difficulty.length > 0 &&
+      !currentFilters.difficulty.includes(problem.difficulty.toLowerCase())
+    ) return false;
 
-    if (currentFilters.company.length > 0 &&
-      !currentFilters.company.includes(problem.company)) {
-      return false;
-    }
+    if (
+      currentFilters.company.length > 0 &&
+      !currentFilters.company.includes(problem.company)
+    ) return false;
 
     if (currentFilters.topics.length > 0) {
       const hasTopic = problem.topics.some(topic =>
@@ -105,11 +95,6 @@ function filterProblems() {
   displayProblems(filtered);
 }
 
-function showAllProblems() {
-  displayProblems(allProblems);
-}
-
-// ✅ Search Function (Local)
 function handleSearch() {
   const query = searchInput.value.trim().toLowerCase();
 
@@ -122,7 +107,6 @@ function handleSearch() {
     problem.title.toLowerCase().includes(query)
   );
 
-  // Sort: exact matches on top
   filtered.sort((a, b) => {
     const aMatch = a.title.toLowerCase() === query;
     const bMatch = b.title.toLowerCase() === query;
@@ -132,7 +116,11 @@ function handleSearch() {
   displayProblems(filtered);
 }
 
-// ✅ Display Problems
+function resetSearch() {
+  searchInput.value = '';
+  displayProblems(allProblems);
+}
+
 function displayProblems(problems) {
   const list = document.querySelector('.problem-list');
   list.innerHTML = '';
@@ -172,7 +160,6 @@ function displayProblems(problems) {
   setupActionListeners();
 }
 
-// ✅ Setup checkbox + revision buttons
 function setupActionListeners() {
   document.querySelectorAll('.solved-checkbox').forEach(box => {
     box.addEventListener('change', async function () {
@@ -200,7 +187,6 @@ function setupActionListeners() {
   });
 }
 
-// ✅ Save progress to backend
 async function updateProgress(title, isSolved, revisionCount) {
   if (!userId) {
     alert("Please login to track progress.");
@@ -224,7 +210,6 @@ async function updateProgress(title, isSolved, revisionCount) {
   }
 }
 
-// ✅ Load user progress
 async function fetchUserProgress() {
   if (!userId) {
     userProgress = {};
@@ -247,25 +232,28 @@ async function fetchUserProgress() {
   }
 }
 
-// ✅ Fetch problems and then progress
 async function fetchProblems() {
   try {
     const response = await fetch('https://learnhub-0m40.onrender.com/api/problems');
     allProblems = await response.json();
     await fetchUserProgress();
-    displayProblems(allProblems);
     setupFilterOptions();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const topic = urlParams.get("topic");
+
+    if (topic) {
+      const topicFiltered = allProblems.filter(problem =>
+        problem.topics.map(t => t.toLowerCase()).includes(topic.toLowerCase())
+      );
+      displayProblems(topicFiltered);
+    } else {
+      displayProblems(allProblems);
+    }
+
   } catch (err) {
     console.error('Error fetching problems:', err);
   }
 }
-//search result
-function resetSearch() {
-  const searchInput = document.getElementById("searchInput");
-  searchInput.value = '';
-  displayProblems(allProblems); // Show all again
-}
 
-
-// 🔄 Load on page
 window.onload = fetchProblems;
