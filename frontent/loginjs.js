@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let loggedIn = false;
 
+  // ✅ On page load, check localStorage
+  const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  if (storedUser && storedUser.email) {
+    loggedIn = true;
+    loginBtn.textContent = 'Logout';
+  }
+
   function openLoginModal() {
     loginModal.style.display = 'block';
     document.body.style.overflow = 'hidden';
@@ -28,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (loggedIn) {
         if (confirm('Are you sure you want to logout?')) {
           loggedIn = false;
+          localStorage.removeItem('loggedInUser'); // ✅ remove user from localStorage
           loginBtn.textContent = 'Login';
           alert('You have been logged out.');
         }
@@ -73,12 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // Real backend login request
     fetch('https://learnhub-0m40.onrender.com/api/auth/login', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     })
       .then(res => res.json())
@@ -91,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.style.overflow = 'auto';
             loggedIn = true;
             loginBtn.textContent = 'Logout';
+            localStorage.setItem('loggedInUser', JSON.stringify({ email })); // ✅ Save login state
             loginForm.reset();
           }, 1000);
         } else {
@@ -107,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 
-  // Expose login state control externally
+  // External access
   window.loginUtils = {
     openLoginModal,
     setLoggedIn: function (state) {

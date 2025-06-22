@@ -18,20 +18,37 @@ router.post('/add-multiple', async (req, res) => {
   }
 });
 
-// ✅ Get All Problems (Unfiltered)
+// ✅ Get All Problems (Supports search by title)
 router.get('/', async (req, res) => {
   try {
-    const problems = await Problem.find({});
+    const { title } = req.query;
+
+    const filter = {};
+
+    if (title) {
+      filter.title = { $regex: title, $options: 'i' }; // case-insensitive search
+    }
+
+    const problems = await Problem.find(filter);
     res.json(problems);
   } catch (err) {
     res.status(500).json({ msg: 'Server error', error: err.message });
   }
 });
 
-// ✅ Filter Problems with optional pagination and sorting
+// ✅ Advanced Filtering: company, difficulty, topics, pagination, sorting
 router.get('/filter', async (req, res) => {
   try {
-    const { title, company, topics, difficulty, page = 1, limit = 20, sortBy = 'title', order = 'asc' } = req.query;
+    const {
+      title,
+      company,
+      topics,
+      difficulty,
+      page = 1,
+      limit = 20,
+      sortBy = 'title',
+      order = 'asc'
+    } = req.query;
 
     const filter = {};
 
@@ -65,7 +82,5 @@ router.get('/filter', async (req, res) => {
     res.status(500).json({ msg: 'Server error', error: err.message });
   }
 });
-
-
 
 module.exports = router;

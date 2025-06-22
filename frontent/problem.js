@@ -5,8 +5,8 @@ let currentFilters = {
   topics: []
 };
 
-// Simulated user ID (Replace with actual user ID from auth session)
-const userId = "rohan@example.com";
+// ✅ Get actual logged-in user from localStorage
+const userId = JSON.parse(localStorage.getItem('loggedInUser'))?.email || null;
 
 // Track user progress
 let userProgress = {};
@@ -21,6 +21,7 @@ const resetFilter = document.getElementById('reset-filter');
 const difficultyOptions = document.getElementById('difficulty-options');
 const companyOptions = document.getElementById('company-options');
 const topicOptions = document.getElementById('topic-options');
+const searchInput = document.getElementById('searchInput');
 
 // Event Listeners
 filterLink.addEventListener('click', openFilterModal);
@@ -28,6 +29,9 @@ homeLink.addEventListener('click', showAllProblems);
 closeFilter.addEventListener('click', closeFilterModal);
 applyFilter.addEventListener('click', applyFilters);
 resetFilter.addEventListener('click', resetFilters);
+searchInput.addEventListener('keyup', function (e) {
+  if (e.key === 'Enter') handleSearch();
+});
 
 // Add event listeners to filter options
 function setupFilterOptions() {
@@ -104,32 +108,39 @@ function filterProblems() {
 function showAllProblems() {
   displayProblems(allProblems);
 }
-//search feature
-async function handleSearch() {
-  const query = document.getElementById("searchInput").value.trim();
+
+// ✅ Search Function (Local)
+function handleSearch() {
+  const query = searchInput.value.trim().toLowerCase();
 
   if (!query) {
-    // If input is empty, reset to all problems
     displayProblems(allProblems);
     return;
   }
 
-  try {
-    const res = await fetch(`https://learnhub-0m40.onrender.com/api/problems?title=${encodeURIComponent(query)}`);
-    const data = await res.json();
+  const filtered = allProblems.filter(problem =>
+    problem.title.toLowerCase().includes(query)
+  );
 
-    // Merge with progress data
-    displayProblems(data);
-  } catch (error) {
-    console.error("Search failed:", error);
-  }
+  // Sort: exact matches on top
+  filtered.sort((a, b) => {
+    const aMatch = a.title.toLowerCase() === query;
+    const bMatch = b.title.toLowerCase() === query;
+    return (bMatch ? 1 : 0) - (aMatch ? 1 : 0);
+  });
+
+  displayProblems(filtered);
 }
 
-
-// 🆕 Display problems with solved + revision state
+// ✅ Display Problems
 function displayProblems(problems) {
   const list = document.querySelector('.problem-list');
   list.innerHTML = '';
+
+  if (problems.length === 0) {
+    list.innerHTML = `<p style="color:red;">No problems found.</p>`;
+    return;
+  }
 
   problems.forEach(problem => {
     const progress = userProgress[problem.title] || { isSolved: false, revisionCount: 0 };
@@ -161,7 +172,7 @@ function displayProblems(problems) {
   setupActionListeners();
 }
 
-// 🆕 Set up checkbox + revision buttons
+// ✅ Setup checkbox + revision buttons
 function setupActionListeners() {
   document.querySelectorAll('.solved-checkbox').forEach(box => {
     box.addEventListener('change', async function () {
@@ -189,8 +200,13 @@ function setupActionListeners() {
   });
 }
 
-// 🆕 Sync progress to backend
+// ✅ Save progress to backend
 async function updateProgress(title, isSolved, revisionCount) {
+  if (!userId) {
+    alert("Please login to track progress.");
+    return;
+  }
+
   try {
     await fetch('https://learnhub-0m40.onrender.com/api/progress/update', {
       method: 'POST',
@@ -208,8 +224,13 @@ async function updateProgress(title, isSolved, revisionCount) {
   }
 }
 
-// 🆕 Fetch user progress from backend
+// ✅ Load user progress
 async function fetchUserProgress() {
+  if (!userId) {
+    userProgress = {};
+    return;
+  }
+
   try {
     const res = await fetch(`https://learnhub-0m40.onrender.com/api/progress/${userId}`);
     const data = await res.json();
@@ -226,7 +247,7 @@ async function fetchUserProgress() {
   }
 }
 
-// Fetch problems and then progress
+// ✅ Fetch problems and then progress
 async function fetchProblems() {
   try {
     const response = await fetch('https://learnhub-0m40.onrender.com/api/problems');
@@ -238,6 +259,13 @@ async function fetchProblems() {
     console.error('Error fetching problems:', err);
   }
 }
+//search result
+function resetSearch() {
+  const searchInput = document.getElementById("searchInput");
+  searchInput.value = '';
+  displayProblems(allProblems); // Show all again
+}
 
-// Initial load
+
+// 🔄 Load on page
 window.onload = fetchProblems;

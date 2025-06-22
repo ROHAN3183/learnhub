@@ -190,6 +190,22 @@
     .btn-secondary {
       background: #f0f0f0;
     }
+    
+
+    .reset-btn {
+  padding: 10px 15px;
+  background-color: #2d2dff; /* Blue background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.reset-btn:hover {
+  background-color: #1a1aff; /* Slightly darker on hover */
+}
+
   </style>
 </head>
 <body>
@@ -205,11 +221,15 @@
   <div class="section">
     <h2>All Problems</h2>
 
-    <!-- Search Bar -->
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search problems by title..." />
-      <button onclick="handleSearch()">Search</button>
-    </div>
+<!-- Search Bar -->
+<!-- Search Bar -->
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search problems by title..." />
+  <button onclick="handleSearch()">Search</button>
+  <button onclick="resetSearch()" class="reset-btn">Reset</button>
+</div>
+
+
 
     <!-- Problems will be injected here -->
     <div class="problem-list"></div>
