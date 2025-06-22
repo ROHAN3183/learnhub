@@ -17,6 +17,10 @@ app.use('/api/auth', authRoutes);
 const problemsRoutes = require('./routes/problems'); // 1. Require the file
 app.use('/api/problems', problemsRoutes);            // 2. Mount the route
 
+const progressRoutes = require('./routes/progress');
+app.use('/api/progress', progressRoutes);
+
+
 
 // Root Route
 app.get('/', (req, res) => {

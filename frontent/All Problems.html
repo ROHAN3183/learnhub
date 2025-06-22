@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>DSA Problems - DSA LearnHub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
       margin: 0; padding: 0; box-sizing: border-box;
@@ -49,6 +49,27 @@
       font-size: 28px;
       margin-bottom: 20px;
       color: #2d2dff;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .search-bar button {
+      padding: 10px 15px;
+      background-color: #2d2dff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
     }
 
     .problem-list {
@@ -177,16 +198,21 @@
     <h1>DSA LearnHub</h1>
     <ul>
       <li><a href="index.html" id="home-link">Home</a></li>
-      <li><a href="#">Search</a></li>
       <li><a href="#" id="filter-link">Filter</a></li>
     </ul>
   </nav>
 
   <div class="section">
     <h2>All Problems</h2>
-    <div class="problem-list">
-      <!-- Problems will be loaded here -->
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search problems by title..." />
+      <button onclick="handleSearch()">Search</button>
     </div>
+
+    <!-- Problems will be injected here -->
+    <div class="problem-list"></div>
   </div>
 
   <!-- Filter Modal -->
@@ -240,6 +266,7 @@
   <footer>
     © 2025 DSA LearnHub. All rights reserved.
   </footer>
+
   <script src="problem.js"></script>
 </body>
 </html>
