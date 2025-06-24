@@ -108,11 +108,11 @@ nav h1 {
 
 /* 📦 Section */
     /* 📦 Section */
-/*.section {
+.section {
   padding: 3rem 2rem;
   background-color: var(--light-blue);
   width: 100%;
-}*/
+}
 
 .section-container {
   max-width: 1200px;
