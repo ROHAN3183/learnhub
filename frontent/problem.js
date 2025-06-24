@@ -121,6 +121,7 @@ function resetSearch() {
   displayProblems(allProblems);
 }
 
+//incremnet and the decrement on the button
 function displayProblems(problems) {
   const list = document.querySelector('.problem-list');
   list.innerHTML = '';
@@ -149,8 +150,8 @@ function displayProblems(problems) {
         <span style="margin-left: 20px;">
           Revisions: <span class="revision-count" data-title="${problem.title}">${progress.revisionCount}</span>
         </span>
-        <button class="rev-btn" data-delta="1" data-title="${problem.title}">+</button>
-        <button class="rev-btn" data-delta="-1" data-title="${problem.title}">-</button>
+        <button class="rev-btn increment" data-delta="1" data-title="${problem.title}">+</button>
+        <button class="rev-btn decrement" data-delta="-1" data-title="${problem.title}">-</button>
       </div>
     `;
 
@@ -159,6 +160,8 @@ function displayProblems(problems) {
 
   setupActionListeners();
 }
+
+
 
 function setupActionListeners() {
   document.querySelectorAll('.solved-checkbox').forEach(box => {

@@ -212,6 +212,38 @@
     .reset-btn:hover {
       background-color: #1a1aff;
     }
+    /*increment decrement color*/
+    .rev-btn {
+  border: none;
+  padding: 4px 10px;
+  margin-left: 6px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+/* 🟢 Green for Increment Button */
+.rev-btn.increment {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.rev-btn.increment:hover {
+  background-color: #388e3c;
+}
+
+/* 🔴 Red for Decrement Button */
+.rev-btn.decrement {
+  background-color: #f44336;
+  color: white;
+}
+
+.rev-btn.decrement:hover {
+  background-color: #c62828;
+}
+
   </style>
 </head>
 <body>

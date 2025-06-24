@@ -343,3 +343,32 @@ footer {
     margin-top: 0.5rem;
   }
 }
+/*color change on the button on the increment and the decrement*/
+.rev-btn {
+  border: none;
+  padding: 4px 10px;
+  margin-left: 6px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: bold;
+}
+
+.rev-btn.increment {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.rev-btn.increment:hover {
+  background-color: #388e3c;
+}
+
+.rev-btn.decrement {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.rev-btn.decrement:hover {
+  background-color: #c62828;
+}
