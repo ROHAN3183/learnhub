@@ -1,12 +1,12 @@
 :root {
   /* 🎨 Color Palette */
-  --primary-blue: #2d2dff;      /* Headers, buttons, accents */
-  --dark-blue: #1a1a7a;         /* Navbar hover, footer accents */
-  --light-blue: #e6e6ff;        /* Background highlights */
-  --white: #ffffff;             /* Cards, main background */
-  --light-gray: #f5f5f5;        /* Secondary background */
-  --dark-gray: #333333;         /* Text, borders */
-  --accent-green: #4CAF50;      /* Success messages, positive elements */
+  --primary-blue: #2d2dff;
+  --dark-blue: #1a1a7a;
+  --light-blue: #e6e6ff;
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+  --dark-gray: #333333;
+  --accent-green: #4CAF50;
 
   /* 💫 Utility */
   --gradient: linear-gradient(to right, #6a11cb, #2575fc);
@@ -14,6 +14,7 @@
   --transition: all 0.3s ease;
 }
 
+/* 🚀 Base Reset */
 * {
   margin: 0;
   padding: 0;
@@ -21,33 +22,41 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
-  background-color: var(--light-gray); /* Page background */
-  color: var(--dark-gray);             /* Main text */
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   line-height: 1.6;
+  width: 100%;
 }
 
-/* 🔷 Navigation */
+/* 🔷 Navigation - Full Width */
 nav {
-  background-color: var(--primary-blue); /* Primary blue */
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: var(--primary-blue);
   color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-/* change for the width adjecemt*/
-nav, footer, .section, .hero {
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
 
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 nav h1 {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
@@ -69,7 +78,7 @@ nav h1 {
 }
 
 .nav-menu li a:hover {
-  background-color: var(--dark-blue); /* Hover effect with dark blue */
+  background-color: var(--dark-blue);
 }
 
 /* 🌟 Hero Section */
@@ -78,6 +87,12 @@ nav h1 {
   color: white;
   padding: 4rem 2rem;
   text-align: center;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero h2 {
@@ -94,14 +109,19 @@ nav h1 {
 /* 📦 Section */
 .section {
   padding: 3rem 2rem;
-  background-color: var(--light-blue); /* Highlight background */
+  background-color: var(--light-blue);
   width: 100%;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .section h3 {
   font-size: clamp(1.5rem, 3vw, 2rem);
   text-align: center;
-  color: var(--primary-blue); /* Accent color for headings */
+  color: var(--primary-blue);
   margin-bottom: 2rem;
 }
 
@@ -110,10 +130,12 @@ nav h1 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .card {
-  background: var(--white);       /* Neutral card background */
+  background: var(--white);
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: var(--card-shadow);
@@ -122,12 +144,12 @@ nav h1 {
 }
 
 .card h4 {
-  color: var(--primary-blue);     /* Heading accent */
+  color: var(--primary-blue);
   margin-bottom: 0.5rem;
 }
 
 .card p {
-  color: var(--dark-gray);        /* Text color */
+  color: var(--dark-gray);
   font-size: 0.9rem;
 }
 
@@ -137,29 +159,20 @@ nav h1 {
   border: 1px solid var(--primary-blue);
 }
 
-.card:hover h4,
-.card:hover p {
-  color: var(--primary-blue);
-}
-
-/* ✅ Accent Use Case: Green Button Example */
-.success-btn {
-  background-color: var(--accent-green);  /* Optional success style */
-  color: white;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* 📌 Footer */
+/* 📌 Footer - Full Width */
 footer {
-  background-color: var(--dark-blue); /* Darker blue footer */
+  background-color: var(--dark-blue);
   color: white;
   text-align: center;
   padding: 1.5rem;
   margin-top: auto;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* 📱 Mobile Menu Toggle */
@@ -226,7 +239,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-  nav {
+  .nav-container {
     padding: 1rem;
   }
 
