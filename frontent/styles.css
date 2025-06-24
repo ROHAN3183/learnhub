@@ -107,6 +107,7 @@ nav h1 {
 }
 
 /* 📦 Section */
+    /* 📦 Section */
 .section {
   padding: 3rem 2rem;
   background-color: var(--light-blue);
@@ -124,6 +125,7 @@ nav h1 {
   color: var(--primary-blue);
   margin-bottom: 2rem;
 }
+
 
 /* 🃏 Cards */
 .card-container {
