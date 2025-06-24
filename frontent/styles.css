@@ -107,8 +107,9 @@ nav h1 {
 }
 
 /* 📦 Section */
+    /* 📦 Section */
 .section {
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   background-color: var(--light-blue);
   width: 100%;
 }
@@ -116,7 +117,6 @@ nav h1 {
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 .section h3 {
@@ -126,12 +126,14 @@ nav h1 {
   margin-bottom: 2rem;
 }
 
+
 /* 🃏 Cards */
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
-  padding-bottom: 1rem; /* Added for consistent bottom spacing */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .card {
@@ -159,107 +161,20 @@ nav h1 {
   border: 1px solid var(--primary-blue);
 }
 
-/* Footer Styles */
-.custom-footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+/* 📌 Footer - Full Width */
+footer {
   background-color: var(--dark-blue);
   color: white;
-  padding: 2rem 1.5rem;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  margin-top: auto; /* Pushes footer to bottom */
 }
 
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.profile-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 2px solid white;
-  object-fit: cover;
-}
-
-.footer-text p {
-  margin: 0;
-  line-height: 1.3;
-}
-
-.footer-text a {
-  color: var(--white);
-  text-decoration: underline;
-  font-size: 0.8rem;
-  transition: var(--transition);
-}
-
-.footer-text a:hover {
-  opacity: 0.9;
-}
-
-.footer-right {
-  text-align: right;
-}
-
-.footer-right p {
-  margin-bottom: 0.5rem;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
-}
-
-.social-icons a {
-  display: inline-block;
-}
-
-.social-icons img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
-  transition: transform 0.2s ease;
-}
-
-.social-icons img:hover {
-  transform: scale(1.1);
-}
-
-/* Modal Styles */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1001;
-}
-
-.modal-content {
-  background-color: var(--white);
-  margin: 10% auto;
-  padding: 2rem;
-  max-width: 500px;
-  border-radius: 8px;
-  position: relative;
-}
-
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 1.5rem;
-  cursor: pointer;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* 📱 Mobile Menu Toggle */
@@ -281,7 +196,7 @@ nav h1 {
   transition: var(--transition);
 }
 
-/* 📱 Responsive Adjustments */
+/* 📱 Responsive */
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
@@ -323,48 +238,92 @@ nav h1 {
   .menu-toggle.active span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
   }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 1rem;
+  }
 
   .hero {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
   }
 
   .section {
     padding: 1.5rem 1rem;
   }
 
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*footer section design*/
+.custom-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.footer-text p {
+  margin: 0;
+  line-height: 1.3;
+}
+
+.footer-text a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: 0.8rem;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.social-icons a {
+  margin-left: 8px;
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.05);
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 600px) {
   .custom-footer {
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 1.5rem 1rem;
-  }
-
-  .footer-left {
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 1rem;
+    padding: 1rem;
   }
 
   .footer-right {
     text-align: center;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .card-container {
-    grid-template-columns: 1fr;
-  }
-
-  .nav-container {
-    padding: 1rem;
-  }
-
-  .modal-content {
-    margin: 20% auto;
-    width: 90%;
-    padding: 1.5rem;
+    margin-top: 0.5rem;
   }
 }
