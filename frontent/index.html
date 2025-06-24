@@ -20,145 +20,183 @@
   <!-- PWA (Optional) -->
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#5044E5">
+  
+  <style>
+    /* Temporary inline styles to fix layout issues */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    
+    nav, footer {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+    
+    .nav-container, .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    
+    .hero-content, .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-container, .footer-container {
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav>
-    <h1>DSA LearnHub</h1>
-    <div class="menu-toggle" id="mobile-menu">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="nav-container">
+      <h1>DSA LearnHub</h1>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="All Problems.html">All Problems</a></li>
+        <li><a href="Notification.html">Notifications</a></li>
+        <li><a href="#" id="loginBtn">Login</a></li>
+      </ul>
     </div>
-    <ul class="nav-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="All Problems.html">All Problems</a></li>
-      <li><a href="Notification.html">Notifications</a></li>
-      <li><a href="#" id="loginBtn">Login</a></li>
-    </ul>
   </nav>
   
-  <div class="hero">
-    <h2>Master DSA with Real Company Problems</h2>
-    <p>Structured notes, logic-by-logic hints, and full topic coverage</p>
-  </div>
-
-  <div class="section">
-    <h3>Problem Categories</h3>
-    <div class="card-container">
-      <div class="card" onclick="goToTopic('Array')">
-        <h4>Arrays</h4>
-        <p>50+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Strings')">
-        <h4>Strings</h4>
-        <p>40+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Basic Sorting')">
-        <h4>Basic Sorting</h4>
-        <p>30+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('HashMaps')">
-        <h4>HashMaps</h4>
-        <p>45+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Sliding Window')">
-        <h4>Sliding Window</h4>
-        <p>35+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Two pointer')">
-        <h4>Two pointer</h4>
-        <p>25+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Binary Search')">
-        <h4>Binary Search</h4>
-        <p>30+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Greedy')">
-        <h4>Greedy</h4>
-        <p>20+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Heaps')">
-        <h4>Heaps</h4>
-        <p>25+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Stack')">
-        <h4>Stack</h4>
-        <p>30+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Queue')">
-        <h4>Queue</h4>
-        <p>20+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Link Lists')">
-        <h4>Link Lists</h4>
-        <p>35+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Heap / PriorityQueue')">
-        <h4>Heap / PriorityQueue</h4>
-        <p>25+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Recursion')">
-        <h4>Recursion</h4>
-        <p>30+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Backtracking')">
-        <h4>Backtracking</h4>
-        <p>40+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Tree')">
-        <h4>Tree</h4>
-        <p>50+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Graph')">
-        <h4>Graph</h4>
-        <p>60+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Dynamic Programming')">
-        <h4>Dynamic Programming</h4>
-        <p>70+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Bit Manipulation')">
-        <h4>Bit Manipulation</h4>
-        <p>15+ problems</p>
-      </div>
-      <div class="card" onclick="goToTopic('Tries')">
-        <h4>Tries</h4>
-        <p>20+ problems</p>
+  <main>
+    <div class="hero">
+      <div class="hero-content">
+        <h2>Master DSA with Real Company Problems</h2>
+        <p>Structured notes, logic-by-logic hints, and full topic coverage</p>
       </div>
     </div>
-  </div>
 
-  <div class="section" style="text-align: center; padding: 40px 20px; background-color: #f9f9f9;">
-  <div style="
-    max-width: 850px;
-    margin: 0 auto;
-    background: #ffffff;
-    border: 4px solid #5044E5;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  ">
-    <h3 style="color: #5044E5; font-size: 24px; margin-bottom: 15px;">
-      🙌 Acknowledgements
-    </h3>
-    <p style="font-size: 16px; color: #444; line-height: 1.6;">
-      DSA LearnHub is deeply inspired by the work of several amazing educators and open platforms in the DSA community.
-    </p>
-    <p style="font-size: 16px; color: #444; line-height: 1.6; margin-top: 10px;">
-      We’d like to sincerely thank <strong>Apna College</strong>, <strong>Striver (Take U Forward)</strong>, 
-      <strong>Love Babbar</strong>, and <strong>NeetCode</strong> for their invaluable contributions and structured guidance in the field of Data Structures and Algorithms.
-    </p>
-    <p style="font-size: 15px; color: #777; margin-top: 20px;">
-      ⚠️ We do not claim ownership of any problem statements. This platform aggregates publicly available topics for educational and practice purposes only.
-    </p>
-  </div>
-</div>
+    <div class="section">
+      <div class="section-container">
+        <h3>Problem Categories</h3>
+        <div class="card-container">
+          <div class="card" onclick="goToTopic('Array')">
+            <h4>Arrays</h4>
+            <p>50+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Strings')">
+            <h4>Strings</h4>
+            <p>40+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Basic Sorting')">
+            <h4>Basic Sorting</h4>
+            <p>30+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('HashMaps')">
+            <h4>HashMaps</h4>
+            <p>45+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Sliding Window')">
+            <h4>Sliding Window</h4>
+            <p>35+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Two pointer')">
+            <h4>Two pointer</h4>
+            <p>25+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Binary Search')">
+            <h4>Binary Search</h4>
+            <p>30+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Greedy')">
+            <h4>Greedy</h4>
+            <p>20+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Heaps')">
+            <h4>Heaps</h4>
+            <p>25+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Stack')">
+            <h4>Stack</h4>
+            <p>30+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Queue')">
+            <h4>Queue</h4>
+            <p>20+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Link Lists')">
+            <h4>Link Lists</h4>
+            <p>35+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Heap / PriorityQueue')">
+            <h4>Heap / PriorityQueue</h4>
+            <p>25+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Recursion')">
+            <h4>Recursion</h4>
+            <p>30+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Backtracking')">
+            <h4>Backtracking</h4>
+            <p>40+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Tree')">
+            <h4>Tree</h4>
+            <p>50+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Graph')">
+            <h4>Graph</h4>
+            <p>60+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Dynamic Programming')">
+            <h4>Dynamic Programming</h4>
+            <p>70+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Bit Manipulation')">
+            <h4>Bit Manipulation</h4>
+            <p>15+ problems</p>
+          </div>
+          <div class="card" onclick="goToTopic('Tries')">
+            <h4>Tries</h4>
+            <p>20+ problems</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="section" style="text-align: center; padding: 40px 20px; background-color: #f9f9f9;">
+      <div style="
+        max-width: 850px;
+        margin: 0 auto;
+        background: #ffffff;
+        border: 4px solid #5044E5;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      ">
+        <h3 style="color: #5044E5; font-size: 24px; margin-bottom: 15px;">
+          🙌 Acknowledgements
+        </h3>
+        <p style="font-size: 16px; color: #444; line-height: 1.6;">
+          DSA LearnHub is deeply inspired by the work of several amazing educators and open platforms in the DSA community.
+        </p>
+        <p style="font-size: 16px; color: #444; line-height: 1.6; margin-top: 10px;">
+          We'd like to sincerely thank <strong>Apna College</strong>, <strong>Striver (Take U Forward)</strong>, 
+          <strong>Love Babbar</strong>, and <strong>NeetCode</strong> for their invaluable contributions and structured guidance in the field of Data Structures and Algorithms.
+        </p>
+        <p style="font-size: 15px; color: #777; margin-top: 20px;">
+          ⚠️ We do not claim ownership of any problem statements. This platform aggregates publicly available topics for educational and practice purposes only.
+        </p>
+      </div>
+    </div>
+  </main>
 
-
-
-
-  <!-- Login and Register Modals (unchanged) -->
   <!-- Login Modal -->
   <div id="loginModal" class="modal">
     <div class="modal-content">
@@ -212,7 +250,9 @@
   </div>
   
   <footer>
-    © 2025 DSA LearnHub. All rights reserved.
+    <div class="footer-container">
+      © 2025 DSA LearnHub. All rights reserved.
+    </div>
   </footer>
 
   <!-- Scripts -->
@@ -234,10 +274,39 @@
       });
     });
 
-    // New: redirect to All Problems with topic
     function goToTopic(topic) {
       window.location.href = `All Problems.html?topic=${encodeURIComponent(topic)}`;
     }
+
+    // Modal toggle functionality (if not in external files)
+    document.getElementById('loginBtn')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('loginModal').style.display = 'block';
+    });
+
+    document.getElementById('openRegister')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('loginModal').style.display = 'none';
+      document.getElementById('registerModal').style.display = 'block';
+    });
+
+    document.getElementById('openLogin')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('registerModal').style.display = 'none';
+      document.getElementById('loginModal').style.display = 'block';
+    });
+
+    document.querySelectorAll('.close-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.closest('.modal').style.display = 'none';
+      });
+    });
+
+    window.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal')) {
+        e.target.style.display = 'none';
+      }
+    });
   </script>
 </body>
 </html>
