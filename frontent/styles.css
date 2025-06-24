@@ -11,8 +11,7 @@
   /* 💫 Utility */
   --gradient: linear-gradient(to right, #6a11cb, #2575fc);
   --navbar-gradient: linear-gradient(to right, #4b0ca8, #1c4baf);
-
- 
+--light-primary-blue: #4c6fff; /* Slightly darker than before, still soft */
 
   --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
@@ -149,13 +148,15 @@ nav h1 {
   min-width: 0;
 }
 
+/*color of the problems*/
 .card h4 {
-  color: var(--primary-blue);
+  color: var(--light-primary-blue); /* ✅ Now using lighter blue */
   margin-bottom: 0.5rem;
   word-wrap: break-word;
   overflow-wrap: break-word;
   font-size: 1.1rem;
 }
+
 
 .card p {
   color: var(--dark-gray);
