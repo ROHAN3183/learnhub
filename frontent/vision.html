@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <title>Vision - DSA LearnHub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Optional: Google Font -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navbar-gradient: linear-gradient(to right, #4b0ca8, #1c4baf);
-      --primary-dark: #1a1a7a;
-      --light-bg: #f4f9ff;
+      --navbar-gradient: linear-gradient(to right, #6a11cb, #2575fc);
       --white: #ffffff;
       --gray: #555;
+      --light-bg: #f4f9ff;
+      --dark-purple: #4b0ca8;
     }
 
     * {
@@ -28,47 +28,60 @@
     }
 
     /* Navbar */
-nav {
-  background: linear-gradient(to right, #6a11cb, #2575fc); /* updated gradient */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1.5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
+    nav {
+      background: var(--navbar-gradient);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1.2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
     .logo {
       font-size: 1.2rem;
       color: var(--white);
-      text-decoration: none;
       font-weight: 600;
+      text-decoration: none;
     }
 
-    nav ul {
+    .nav-links {
       display: flex;
-      list-style: none;
       gap: 1rem;
     }
 
-    nav ul li a {
+    .nav-links a {
       color: var(--white);
       text-decoration: none;
       font-size: 0.95rem;
-      padding: 0.3rem 0.6rem;
+      padding: 0.4rem 0.6rem;
       border-radius: 6px;
-      transition: all 0.3s ease;
+      transition: background 0.3s ease;
     }
 
-    nav ul li a:hover,
-    nav ul li a.active {
+    .nav-links a:hover,
+    .nav-links a.active {
       background-color: rgba(255, 255, 255, 0.15);
     }
 
-    /* Main Container */
+    /* Hamburger menu (hidden on desktop) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    /* Main content */
     .container {
       max-width: 960px;
       margin: 2rem auto;
@@ -79,7 +92,7 @@ nav {
     }
 
     h1 {
-      color: #4b0ca8;
+      color: var(--dark-purple);
       font-size: 2rem;
       margin-bottom: 1rem;
     }
@@ -89,9 +102,9 @@ nav {
     }
 
     section h2 {
-      color: var(--primary-dark);
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
+      color: #333;
     }
 
     p {
@@ -117,16 +130,24 @@ nav {
       color: var(--gray);
     }
 
+    /* Mobile styles */
     @media (max-width: 768px) {
-      nav {
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: var(--navbar-gradient);
         flex-direction: column;
-        align-items: flex-start;
+        width: 100%;
+        display: none;
       }
 
-      nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
       }
 
       .container {
@@ -149,20 +170,27 @@ nav {
   <!-- Navbar -->
   <nav>
     <a class="logo" href="index.html">DSA LearnHub</a>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="All Problems.html">All Problems</a></li>
-      <li><a href="vision.html" class="active">Vision</a></li>
-    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="All Problems.html">All Problems</a>
+      <a href="vision.html" class="active">Vision</a>
+    </div>
   </nav>
 
-  <!-- Page Content -->
+  <!-- Content -->
   <div class="container">
     <h1>Our Vision</h1>
 
     <section>
       <h2>📌 What is DSA LearnHub?</h2>
-      <p><strong>DSA LearnHub</strong> is a learning platform built to help students and aspiring developers master Data Structures and Algorithms (DSA) by aggregating top-quality resources in one place. It's clean, structured, and made for self-paced mastery.</p>
+      <p><strong>DSA LearnHub</strong> is a learning platform built to help students and aspiring developers master Data Structures and Algorithms (DSA) by aggregating top-quality resources in one place.</p>
     </section>
 
     <section>
@@ -170,40 +198,47 @@ nav {
       <ul>
         <li><strong>GeeksforGeeks</strong> – Editorials, guides & problem lists</li>
         <li><strong>LeetCode</strong> – Interview-focused problems</li>
-        <li><strong>Apna College</strong> – Beginner-friendly concepts by Aman Dhattarwal</li>
-        <li><strong>Striver (Take U Forward)</strong> – Structured DSA Sheets</li>
-        <li><strong>Love Babbar</strong> – 450 DSA Sheet & crash courses</li>
-        <li><strong>NeetCode</strong> – Leetcode patterns & solutions</li>
+        <li><strong>Apna College</strong> – Beginner-friendly DSA content</li>
+        <li><strong>Striver (Take U Forward)</strong> – DSA Sheets & SDE strategies</li>
+        <li><strong>Love Babbar</strong> – 450 Sheet & crash courses</li>
+        <li><strong>NeetCode</strong> – Pattern-based DSA practice</li>
       </ul>
     </section>
 
     <section>
-      <h2>🚀 Current Status</h2>
-      <p>This project is still <strong>under active development</strong>. New features are being added step-by-step, based on user feedback and feature priority.</p>
-      <p><em>We are following the Incremental Model of Software Engineering.</em></p>
+      <h2>🚀 Project Status</h2>
+      <p>This project is still under active development, following an <strong>Incremental Software Engineering</strong> approach. New features will be continuously added.</p>
     </section>
 
     <section>
-      <h2>🛠️ Features Coming Soon</h2>
+      <h2>🛠️ Coming Soon</h2>
       <ul>
-        <li>✅ Progress & streak tracker</li>
-        <li>📝 User notes & flashcards</li>
-        <li>🏆 Leaderboard & user rankings</li>
-        <li>📅 Live contest reminders</li>
-        <li>📊 Topic-wise analytics</li>
+        <li>📈 Progress tracker</li>
+        <li>📝 Personal notes & flashcards</li>
+        <li>🏆 Leaderboard & ranking</li>
+        <li>📅 Contest reminders</li>
+        <li>📊 Topic analytics</li>
       </ul>
     </section>
 
     <section>
       <h2>💬 Final Note</h2>
-      <p>Whether you're preparing for FAANG interviews or just starting out, LearnHub is here to support your journey. Keep practicing, and let's crack it together! 💪</p>
+      <p>This platform was created with learners in mind. All the best on your DSA journey — and keep solving problems like a pro! 💪</p>
     </section>
   </div>
 
   <!-- Footer -->
   <div class="footer">
-    &copy; 2025 DSA LearnHub | Built with ❤️ by Vitian.
+    &copy; 2025 DSA LearnHub | Made with ❤️ by Vitian
   </div>
+
+  <!-- JS for Hamburger -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>
