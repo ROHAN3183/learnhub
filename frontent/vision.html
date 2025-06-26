@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vision - DSA LearnHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Optional: Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navbar-gradient: linear-gradient(to right, #4b0ca8, #1c4baf);
+      --primary-dark: #1a1a7a;
+      --light-bg: #f4f9ff;
+      --white: #ffffff;
+      --gray: #555;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: #333;
+    }
+
+    /* Navbar */
+nav {
+  background: linear-gradient(to right, #6a11cb, #2575fc); /* updated gradient */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+    .logo {
+      font-size: 1.2rem;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: var(--white);
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      color: #4b0ca8;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    section h2 {
+      color: var(--primary-dark);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      section h2 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <a class="logo" href="index.html">DSA LearnHub</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="All Problems.html">All Problems</a></li>
+      <li><a href="vision.html" class="active">Vision</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1>Our Vision</h1>
+
+    <section>
+      <h2>📌 What is DSA LearnHub?</h2>
+      <p><strong>DSA LearnHub</strong> is a learning platform built to help students and aspiring developers master Data Structures and Algorithms (DSA) by aggregating top-quality resources in one place. It's clean, structured, and made for self-paced mastery.</p>
+    </section>
+
+    <section>
+      <h2>🧠 Resources Gathered From</h2>
+      <ul>
+        <li><strong>GeeksforGeeks</strong> – Editorials, guides & problem lists</li>
+        <li><strong>LeetCode</strong> – Interview-focused problems</li>
+        <li><strong>Apna College</strong> – Beginner-friendly concepts by Aman Dhattarwal</li>
+        <li><strong>Striver (Take U Forward)</strong> – Structured DSA Sheets</li>
+        <li><strong>Love Babbar</strong> – 450 DSA Sheet & crash courses</li>
+        <li><strong>NeetCode</strong> – Leetcode patterns & solutions</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🚀 Current Status</h2>
+      <p>This project is still <strong>under active development</strong>. New features are being added step-by-step, based on user feedback and feature priority.</p>
+      <p><em>We are following the Incremental Model of Software Engineering.</em></p>
+    </section>
+
+    <section>
+      <h2>🛠️ Features Coming Soon</h2>
+      <ul>
+        <li>✅ Progress & streak tracker</li>
+        <li>📝 User notes & flashcards</li>
+        <li>🏆 Leaderboard & user rankings</li>
+        <li>📅 Live contest reminders</li>
+        <li>📊 Topic-wise analytics</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>💬 Final Note</h2>
+      <p>Whether you're preparing for FAANG interviews or just starting out, LearnHub is here to support your journey. Keep practicing, and let's crack it together! 💪</p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 DSA LearnHub | Built with ❤️ by Vitian.
+  </div>
+
+</body>
+</html>
