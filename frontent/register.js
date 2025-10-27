@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     try {
-      const res = await fetch('https://learnhub-0m40.onrender.com/api/auth/register', {
+      const res = await fetch('http://13.203.159.201:5000/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, email, password })

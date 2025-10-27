@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    fetch('https://learnhub-0m40.onrender.com/api/auth/login', {
+    fetch('http://13.203.159.201:5000/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
