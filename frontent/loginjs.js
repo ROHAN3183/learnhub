@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    fetch('http://3.108.181.208:5000/api/auth/login', {
+    fetch('/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),

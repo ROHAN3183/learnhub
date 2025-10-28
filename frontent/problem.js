@@ -197,7 +197,7 @@ async function updateProgress(title, isSolved, revisionCount) {
   }
 
   try {
-    await fetch('http://3.108.181.208:5000/api/progress/update', {
+    await fetch('/api/progress/update', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -220,7 +220,7 @@ async function fetchUserProgress() {
   }
 
   try {
-    const res = await fetch(`http://3.108.181.208:5000/api/progress/${userId}`);
+    const res = await fetch(`/api/progress/${userId}`);
     const data = await res.json();
     userProgress = {};
     data.forEach(p => {
@@ -237,7 +237,7 @@ async function fetchUserProgress() {
 
 async function fetchProblems() {
   try {
-    const response = await fetch('http://3.108.181.208:5000/api/problems');
+    const response = await fetch('/api/problems');
     allProblems = await response.json();
     await fetchUserProgress();
     setupFilterOptions();
